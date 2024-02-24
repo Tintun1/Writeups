@@ -4,9 +4,16 @@
 
 # Enumeración
 
+```bash
+nmap -sV -sC -A -vvv -oN portVersion 10.10.27.181
+```
+
 ![Untitled](PickleRickMedia/Untitled.png)
 
-Hacemos un escaneo de reconocimiento en nmap hallando así que los puertos 22/ssh y 80/http estaban abiertos 
+Hacemos un escaneo de reconocimiento en nmap
+Encontramos:
+- Puerto `22/SSH` estaba abierto con una version de `OpenSSH 7.2p2` y `4ubuntu2.6`
+- Contaba con servicio web ya que tenia el puerto `80/HTTP` abierto con una version de `Apache httpd 2.4.18`
 
 ![Untitled](PickleRickMedia/Untitled%201.png)
 
@@ -14,9 +21,10 @@ esta es la pagina en si de la maquina victima
 
 ![Untitled](PickleRickMedia/Untitled%202.png)
 
-busque directorios y subdirectorios ocultos con dirbuster encontrando así varios interesantes como
+busque directorios y subdirectorios ocultos con `dirbuster` encontrando así varios interesantes como:
 
-“login.php” y “/robots.txt” 
+- “login.php”
+- “/robots.txt”
 
 ![Untitled](PickleRickMedia/Untitled%203.png)
 
@@ -24,11 +32,11 @@ este era el panel de login pero es necesario encontrar algunas credenciales
 
 ![Untitled](PickleRickMedia/Untitled%204.png)
 
-al revisar el sourcecode de la pagina me enconte con un comentario, que tiraba como era el nombre de usuario
+al revisar el `sourcecode` de la pagina me enconte con un comentario, que tiraba como era el nombre de usuario
 
 ![Untitled](PickleRickMedia/Untitled%205.png)
 
-en el directorio de “/robots.txt” había una pista sobre la contraseña y al intentar con el nombre de usuario dado en el anterior ítem (R1ckRul3s) me había dejado a ingresar a un command panel
+en el directorio de `/robots.txt` había una pista sobre la contraseña y al intentar con el nombre de usuario dado en el anterior ítem (R1ckRul3s) me había dejado a ingresar a un command panel
 
 ![Untitled](PickleRickMedia/Untitled%206.png)
 
@@ -38,23 +46,23 @@ al hacer un listado de los directorios que había me encontré con un archivo de
 
 al leerlo al parecer era el primer ingrediente
 
-![Untitled](PickleRickMedia/Untitled%208.png)
+![Untitled](PickleRicPkMedia/Untitled%208.png)
 
-en el archivo de texto “clue.txt” me había encontrado con esta pequeña pista donde podrían estar los siguientes ingredientes de Rick
+en el archivo de texto `clue.txt` me había encontrado con esta pequeña pista donde podrían estar los siguientes ingredientes de Rick
 
 ![Untitled](PickleRickMedia/Untitled%209.png)
 
-al listar la ruta /home/Rick/ había un archivo de texto con el ingrediente
+al listar la ruta `/home/Rick/` había un archivo de texto con el segundo ingrediente
 
 # Explotación
 
 ![Untitled](PickleRickMedia/Untitled%2010.png)
 
-en la raíz había una carpeta llamada /root que llamaba bastante la atención entonces intente escalar privilegios con el comando “sudo -l” para comprobar si el usuario root tenia contraseña, con eso comprobé que no tenia contraseña y predecí a revisar el directorio llamado root. Entonces ahí me encontré con el tercer y ultimo ingrediente  
+en la raíz había una carpeta llamada /root que llamaba bastante la atención entonces intente escalar privilegios con el comando “sudo -l” para comprobar si el usuario root tenia contraseña, con eso comprobé que no tenia contraseña y predecí a revisar el directorio llamado root. Entonces ahí me encontré con el tercer y ultimo ingrediente
 
 # Root Flag
 
-![Untitled](PickleRick%20-%20Easy%2082093cb145db47a0b5db19a9a9f77f40/Untitled%2011.png)
+![Untitled](PickleRickMedia/Untitled%2011.png)
 
 # Conclusiones
 
