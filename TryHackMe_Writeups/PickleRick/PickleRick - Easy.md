@@ -46,7 +46,7 @@ al hacer un listado de los directorios que había me encontré con un archivo de
 
 al leerlo al parecer era el primer ingrediente
 
-![Untitled](PickleRicPkMedia/Untitled%208.png)
+![Untitled](PickleRickMedia/Untitled%208.png)
 
 en el archivo de texto `clue.txt` me había encontrado con esta pequeña pista donde podrían estar los siguientes ingredientes de Rick
 
